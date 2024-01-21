@@ -1,0 +1,58 @@
+﻿@model IEnumerable<BlogListItemVm>
+@{
+    Layout = null;
+}
+
+
+
+<!-- ======= Our Team Section ======= -->
+<section id="team" class="team">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Our Team</h2>
+            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem.</p>
+        </div>
+
+        <div class="row">
+            @foreach(var item in Model)
+            {
+                if (!item.IsDeleted)
+                {
+                    <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up">
+                        <div class="member">
+                            
+
+                            <div class="pic">
+                                @if (!string.IsNullOrEmpty(item.ImageUrl))
+                                {
+                                <img style="width:200px" src="~/Assets/images/stories/@item.ImageUrl" class="img-fluid" alt="">
+
+                                }else{
+                                    <img  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo54hpuEkGK1gxr7JFQ6e9J7JoVv_PaFVDZVr9fvbhJTBBiyRxUpcpA360_JbGE_nrMAk&usqp=CAU" class="img-fluid" alt="" />
+
+                                }
+                                </div>
+                            <div class="member-info">
+                                <h4>@item.Name</h4>
+                                <span>@item.Profession</span>
+                                <div class="social">
+                                    <a href=""><i class="bi bi-twitter"></i></a>
+                                    <a href=""><i class="bi bi-facebook"></i></a>
+                                    <a href=""><i class="bi bi-instagram"></i></a>
+                                    <a href=""><i class="bi bi-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            
+
+            
+
+        </div>
+
+    </div>
+</section><!-- End Our Team Section -->
+<!-- ======= Frequently Asked Questions Section ======= -->

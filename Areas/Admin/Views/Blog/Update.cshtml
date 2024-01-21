@@ -1,0 +1,50 @@
+﻿@model BlogUpdateVm
+@{
+    ViewData["Title"] = "Update";
+}
+
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+    <p class="mb-4">
+
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+            </div>
+            <div class="card-body" id="dataTable">
+                <div class="table-responsive">
+                    <form asp-action="Update" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label asp-for="Name"></label>
+                            <input asp-for="Name" class="form-control">
+                            <span asp-validation-for="Name" class="text-danger" ></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Profession"></label>
+                            <input asp-for="Profession" class="form-control">
+                            <span asp-validation-for="Profession" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="MainIMage"></label>
+                            <br/>
+                            @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                            {
+                                <img style="width:15%" src="~/Assets/images/stories/@Model.ImageUrl" />
+                            }else{
+                                <img style="width:15%"  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo54hpuEkGK1gxr7JFQ6e9J7JoVv_PaFVDZVr9fvbhJTBBiyRxUpcpA360_JbGE_nrMAk&usqp=CAU" />
+                            }
+                            <input asp-for="MainIMage" class="form-control">
+                            <span asp-validation-for="MainIMage" class="text-danger"></span>
+                        </div>
+                        <button class="btn btn-info">Update</button>
+                        <a asp-action="Cancel" class="btn btn-danger">Cancel</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+</div>
